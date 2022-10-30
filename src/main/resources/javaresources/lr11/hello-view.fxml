@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" fillWidth="false" maxHeight="572.0" maxWidth="1149.0" minHeight="572.0" minWidth="1149.0" prefHeight="572.0" prefWidth="1149.0" spacing="20.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javaresources.lr11.HelloController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+   <children>
+      <TabPane prefHeight="542.0" prefWidth="1109.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Инвентарь и его заказы">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="480.0" prefWidth="1109.0">
+                     <children>
+                        <TableView id="inventory" fx:id="inventory" layoutX="-1.0" layoutY="-2.0" prefHeight="259.0" prefWidth="812.0" AnchorPane.bottomAnchor="196.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="298.0" AnchorPane.topAnchor="-2.0">
+                            <contextMenu>
+                                <ContextMenu>
+                                    <items>
+                                        <MenuItem fx:id="contextInventory" onAction="#contextDeleteActionInventories" text="Удалить" />
+                                    </items>
+                                </ContextMenu>
+                            </contextMenu>
+                        </TableView>
+                        <ImageView fx:id="imgInventory" fitHeight="136.0" fitWidth="225.0" layoutX="856.0" preserveRatio="true" AnchorPane.bottomAnchor="317.0" AnchorPane.leftAnchor="868.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="0.0" />
+                        <Label layoutX="868.0" layoutY="128.0" prefHeight="33.0" prefWidth="76.0" text="Название:" AnchorPane.bottomAnchor="292.0" AnchorPane.leftAnchor="868.0" AnchorPane.rightAnchor="165.0" AnchorPane.topAnchor="128.0" />
+                        <Label fx:id="title" layoutX="940.0" layoutY="136.0" prefHeight="17.0" prefWidth="144.0" AnchorPane.leftAnchor="949.0" AnchorPane.rightAnchor="16.0" />
+                        <TextArea fx:id="description" editable="false" layoutX="868.0" layoutY="167.0" pickOnBounds="false" prefHeight="57.0" prefWidth="225.0" wrapText="true" AnchorPane.bottomAnchor="228.0" AnchorPane.leftAnchor="868.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="168.0" />
+                        <TableView id="order" fx:id="ordersTable" layoutY="259.0" prefHeight="197.0" prefWidth="810.0">
+                            <contextMenu>
+                            <ContextMenu>
+                                <items>
+                                    <MenuItem fx:id="contextOrders" onAction="#contextDeleteActionOrders" text="Удалить" />
+                                </items>
+                            </ContextMenu>
+                            </contextMenu>
+                        </TableView>
+                        <Label layoutX="868.0" layoutY="236.0" text="Доступность:" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="868.0" AnchorPane.rightAnchor="160.0" AnchorPane.topAnchor="236.0" />
+                        <Label fx:id="enabled" layoutX="955.0" layoutY="231.0" prefHeight="28.0" prefWidth="144.0" AnchorPane.leftAnchor="949.0" AnchorPane.rightAnchor="16.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Клиенты">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="customersTable" prefHeight="200.0" prefWidth="1109.0">
+                            <contextMenu>
+                                <ContextMenu>
+                                    <items>
+                                        <MenuItem fx:id="contextCustomers" onAction="#contextDeleteActionCustomers" text="Удалить" />
+                                    </items>
+                                </ContextMenu>
+                            </contextMenu>
+                        </TableView>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+      <MenuBar prefHeight="28.0" prefWidth="1109.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Действия над записями в таблице">
+            <items>
+                  <MenuItem fx:id="menuDelete" mnemonicParsing="false" text="Удаление" />
+                <MenuItem fx:id="menuInsert" mnemonicParsing="false" text="Добавление" />
+                  <MenuItem fx:id="menuUpdate" mnemonicParsing="false" text="Обновить запись" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </children>
+</VBox>
