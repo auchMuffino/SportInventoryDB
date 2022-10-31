@@ -21,7 +21,9 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class HelloController implements Initializable {
@@ -40,7 +42,7 @@ public class HelloController implements Initializable {
     @FXML
     private ImageView imgInventory;
     @FXML
-    private MenuItem menuInsert, menuDelete, menuUpdate;
+    private MenuItem menuInsert, menuUpdate;
 
     public static ObservableList<SportInventory> inventories = FXCollections.observableArrayList();
     public static ObservableList<Customer> customers = FXCollections.observableArrayList();
@@ -82,7 +84,6 @@ public class HelloController implements Initializable {
             }
         };
         menuInsert.setOnAction(event);
-        menuDelete.setOnAction(event);
         menuUpdate.setOnAction(event);
     }
     //Удаление из таблицы СпортИнвентарь по щелчку правой кнопкой мыши по записи
@@ -227,6 +228,14 @@ public class HelloController implements Initializable {
                     orders.remove(selectionModel.getSelectedItem());
                 }
             }
+        }
+    }
+    @FXML
+    private void hourRentCost(){
+        List<Double> finalOrderCost=new ArrayList<>();
+        for(AboutOrder order:orders){
+            finalOrderCost.add(order.getHoursCount()*order.getInventoryItem().getCostPerHour());
+            System.out.println(order.getHoursCount()*order.getInventoryItem().getCostPerHour());
         }
     }
 }
