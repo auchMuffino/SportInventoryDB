@@ -12,6 +12,7 @@ module javaresources.lr11 {
     requires com.almasb.fxgl.all;
     requires java.sql;
     requires java.desktop;
+    requires kernel;
 
     opens javaresources.lr11 to javafx.fxml;
     exports javaresources.lr11;

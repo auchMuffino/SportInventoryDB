@@ -66,9 +66,8 @@
         <menus>
           <Menu mnemonicParsing="false" text="Действия над записями в таблице">
             <items>
-                  <MenuItem onAction="#hourRentCost" mnemonicParsing="false" text="Удаление" />
+                  <MenuItem onAction="#functionsOpen" mnemonicParsing="false" text="Функции" />
                 <MenuItem fx:id="menuInsert" mnemonicParsing="false" text="Добавление" />
-                  <MenuItem fx:id="menuUpdate" mnemonicParsing="false" text="Обновить запись" />
             </items>
           </Menu>
         </menus>

@@ -1,5 +1,6 @@
 package javaresources.lr11;
 
+import com.itextpdf.kernel.pdf.PdfWriter;
 import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -21,9 +22,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class HelloController implements Initializable {
@@ -42,7 +41,7 @@ public class HelloController implements Initializable {
     @FXML
     private ImageView imgInventory;
     @FXML
-    private MenuItem menuInsert, menuUpdate;
+    private MenuItem menuInsert;
 
     public static ObservableList<SportInventory> inventories = FXCollections.observableArrayList();
     public static ObservableList<Customer> customers = FXCollections.observableArrayList();
@@ -77,14 +76,9 @@ public class HelloController implements Initializable {
                     fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("insert.fxml"));
                     newStage(fxmlLoader);
                 }
-                else {
-                    fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("update.fxml"));
-                    newStage(fxmlLoader);
-                }
             }
         };
         menuInsert.setOnAction(event);
-        menuUpdate.setOnAction(event);
     }
     //Удаление из таблицы СпортИнвентарь по щелчку правой кнопкой мыши по записи
     public void contextDeleteActionInventories(){
@@ -230,12 +224,11 @@ public class HelloController implements Initializable {
             }
         }
     }
-    @FXML
-    private void hourRentCost(){
-        List<Double> finalOrderCost=new ArrayList<>();
-        for(AboutOrder order:orders){
-            finalOrderCost.add(order.getHoursCount()*order.getInventoryItem().getCostPerHour());
-            System.out.println(order.getHoursCount()*order.getInventoryItem().getCostPerHour());
-        }
+    public void functionsOpen(){
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Functions.fxml"));
+        newStage(fxmlLoader);
+    }
+    private void billPDF(){
+        PdfWriter writer = new PdfWriter();
     }
 }
