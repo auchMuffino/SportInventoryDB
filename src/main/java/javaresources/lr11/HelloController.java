@@ -1,5 +1,6 @@
 package javaresources.lr11;
 
+import com.itextpdf.kernel.pdf.PdfWriter;
 import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -40,7 +41,7 @@ public class HelloController implements Initializable {
     @FXML
     private ImageView imgInventory;
     @FXML
-    private MenuItem menuInsert, menuDelete, menuUpdate;
+    private MenuItem menuInsert;
 
     public static ObservableList<SportInventory> inventories = FXCollections.observableArrayList();
     public static ObservableList<Customer> customers = FXCollections.observableArrayList();
@@ -75,15 +76,9 @@ public class HelloController implements Initializable {
                     fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("insert.fxml"));
                     newStage(fxmlLoader);
                 }
-                else {
-                    fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("update.fxml"));
-                    newStage(fxmlLoader);
-                }
             }
         };
         menuInsert.setOnAction(event);
-        menuDelete.setOnAction(event);
-        menuUpdate.setOnAction(event);
     }
     //Удаление из таблицы СпортИнвентарь по щелчку правой кнопкой мыши по записи
     public void contextDeleteActionInventories(){
@@ -228,5 +223,12 @@ public class HelloController implements Initializable {
                 }
             }
         }
+    }
+    public void functionsOpen(){
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Functions.fxml"));
+        newStage(fxmlLoader);
+    }
+    private void billPDF(){
+        PdfWriter writer = new PdfWriter();
     }
 }
